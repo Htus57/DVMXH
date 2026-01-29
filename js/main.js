@@ -320,3 +320,4 @@ function setupActiveNavigation() {
     
     window.addEventListener('scroll', updateActiveNavLink);
 }
+

@@ -1,39 +1,39 @@
 [
     {
         "id": 1,
-        "name": "YouTube Premium VPN",
+        "name": "YouTubeVPN",
         "shortDescription": "Xem video youtube không bị chặn và có chất lượng tốt hơn.",
-        "longDescription": "Sử dụng Youtube preniumVPN để xem video youtube không bị quảng cáo, phát video dưới nền, pop-up video...",
-        "price": "20.000 KRW",
+        "longDescription": "Sử dụng YoutubeVPN để xem video youtube không bị quảng cáo, phát video dưới nền, pop-up video...",
+        "price": "12.000₩",
         "features": [
             "Chặn quảng cáo 100%",
-            "SẼ HƯỚNG DẪN CHI TIẾT , NẾU TRONG QUÁ TRÌNH LÀM MÀ FILE BỊ FIX or LỖI SẼ HOÀN TIỀN 100%"
+            "HƯỚNG DẪN CHI TIẾT , NẾU TRONG QUÁ TRÌNH LÀM MÀ FILE BỊ FIX or LỖI SẼ HOÀN TIỀN 100%"
         ],
         "preparations": [
-          "NHỮNG THỨ CẦN CHUẨN BỊ ĐỂ THỰC HIỆN: tải ứng dụng (Shadowrocket) với giá 99k vnd trên Appstore,Hoặc mua bên phần dịch vụ",
-          "==============================================================",
-            "*** LƯU Ý: HÃY ĐỌC KỸ NẾU KHÔNG SẼ KHÔNG HỖ TRỢ ***",
+          "NHỮNG THỨ CẦN CHUẨN BỊ ĐỂ THỰC HIỆN: tải ứng dụng (Shadowrocket) với giá 99k vnd trên Appstore,Hoặc thuê icloud để tải",
+            "=======================",
+            "LƯU Ý: HÃY ĐỌC KỸ NẾU KHÔNG SẼ KHÔNG HỖ TRỢ",
             "Vẫn sẽ có lỗi vì đây chỉ là VPN để thay đổi proxy truy cập youtube",
             "Sẽ có hướng dẫn đầy đủ nếu gặp tình trạng lỗi",
-            "Giá rẻ nên sẽ không có bảo hành",
-            "NẾU SỬ DỤNG ĐƯỢC VÀI NGÀY MÀ BỊ YOUTUBE QUÉT VÀ FIX THÌ SẼ KHÔNG ĐƯỢC HỖ TRỢ",
+            "Giá rẻ nên bảo hành 2 tuần",
             "Bên mình đang tìm các gói có bảo hành",
-            "Đã test trên nhiều thiết bị IOS nếu bạn dính do bạn XUI thôi nhé",
-            "==============================================================",
+            "Đã test trên nhiều thiết bị IOS",
+            "=======================",
             "ĐẶC BIỆT KHÔNG ĐƯỢC UPDATE YOUTUBE KHI ĐANG SỬ DỤNG GÓI TRÁNH FIX (LIÊN HỆ ĐỂ ĐƯỢC HƯỚNG DẪN TẮT UPDATE)"
         ]
     },
     {
         "id": 2,
-        "name": "Esign",
+        "name": "Thuê icloud",
         "shortDescription": "",
-        "longDescription": "Sử dụng để download các app.",
-        "price": "5.000 KRW",
+        "longDescription": "Sử dụng để download các app cần thiết.",
+        "price": "3.000₩",
         "features": [
             "Download"
         ],
         "preparations": [
-            "hiện tại vẫn chưa có bản mới nên sẽ update sau"
+            "Khi thuê các bạn sẽ được cung cấp 1 icloud để đăng nhập và tải app SHADOWROCKET",
+            "Hoặc có thể tự mua app trên APPSTORE"
         ]
     }
 ]
