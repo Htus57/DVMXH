@@ -4,7 +4,866 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dịch Vụ MXH</title>
-    <link rel="stylesheet" href="css/style.css">
+    <style>
+/* CSS Reset & Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #1d9bf0;
+    --secondary-color: #111827;
+    --accent-color: #ff5e8a;
+    --light-color: #f5f7fb;
+    --dark-color: #0f172a;
+    --gray-color: #6b7280;
+    --light-gray: #e5e7eb;
+    --success-color: #10b981;
+    --shadow: 0 14px 48px rgba(17, 24, 39, 0.14);
+    --border-radius: 14px;
+    --transition: all 0.3s ease;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    color: var(--dark-color);
+    background-color: #fff;
+    overflow-x: hidden;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    line-height: 1.3;
+    margin-bottom: 1rem;
+}
+
+p {
+    margin-bottom: 1rem;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 28px;
+    border-radius: var(--border-radius);
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition);
+    border: none;
+    font-size: 1rem;
+    text-align: center;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow);
+}
+
+.btn-secondary {
+    background-color: white;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+}
+
+.btn-secondary:hover {
+    background-color: var(--light-gray);
+}
+
+/* Header & Navigation */
+.header {
+    background-color: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--dark-color);
+}
+
+.logo span {
+    color: var(--primary-color);
+}
+
+.nav-menu {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-link {
+    font-weight: 500;
+    transition: var(--transition);
+    position: relative;
+    padding: 5px 0;
+}
+
+.nav-link:hover, .nav-link.active {
+    color: var(--primary-color);
+}
+
+.nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: var(--primary-color);
+    border-radius: 2px;
+}
+
+.hamburger {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.bar {
+    width: 25px;
+    height: 3px;
+    background-color: var(--dark-color);
+    border-radius: 2px;
+    transition: var(--transition);
+}
+
+/* Hero Section */
+.hero {
+    padding: 150px 0 100px;
+    background: radial-gradient(circle at 20% 20%, rgba(29, 155, 240, 0.16), transparent 30%), radial-gradient(circle at 80% 0%, rgba(255, 94, 138, 0.18), transparent 35%), linear-gradient(135deg, #f9fbff 0%, #eef3ff 100%);
+}
+
+.hero .container {
+    position: relative;
+}
+
+.hero-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2.5rem;
+    align-items: center;
+}
+
+.hero-title {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    color: var(--dark-color);
+}
+
+.hero-subtitle {
+    font-size: 1.2rem;
+    color: var(--gray-color);
+    margin-bottom: 2rem;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 1.25rem;
+}
+
+.hero-tags {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 14px;
+    border-radius: 999px;
+    background: var(--light-color);
+    color: var(--secondary-color);
+    border: 1px solid var(--light-gray);
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.pill-ghost {
+    background: rgba(29, 155, 240, 0.12);
+    color: var(--secondary-color);
+    border-color: rgba(29, 155, 240, 0.25);
+}
+
+.pill-soft {
+    background: rgba(255, 94, 138, 0.12);
+    color: #9d174d;
+    border-color: rgba(255, 94, 138, 0.22);
+}
+
+.hero-visual {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.hero-card {
+    background: #ffffff;
+    border-radius: var(--border-radius);
+    padding: 1.8rem;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--light-gray);
+    min-height: 320px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.hero-card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
+.hero-price {
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.hero-card-text {
+    color: var(--gray-color);
+}
+
+.hero-meta {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 0.85rem;
+}
+
+.stat {
+    background: var(--light-color);
+    border-radius: var(--border-radius);
+    padding: 0.9rem 1rem;
+    text-align: center;
+    border: 1px solid var(--light-gray);
+}
+
+.stat-number {
+    display: block;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--secondary-color);
+}
+
+.stat-label {
+    display: block;
+    color: var(--gray-color);
+    margin-top: 0.2rem;
+    font-size: 0.92rem;
+}
+
+
+/* Section Common Styles */
+.section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    color: var(--dark-color);
+}
+
+.section-subtitle {
+    font-size: 1.1rem;
+    color: var(--gray-color);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Services Section */
+.services-section {
+    padding: 80px 0;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.service-card {
+    background: white;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.service-content {
+    padding: 1.5rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.service-title {
+    font-size: 1.5rem;
+    margin-bottom: 0.8rem;
+    color: var(--dark-color);
+}
+
+.service-description {
+    color: var(--gray-color);
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+}
+
+.service-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+}
+
+.service-price {
+    font-weight: 600;
+    color: var(--primary-color);
+    font-size: 1.2rem;
+}
+
+/* About Section */
+.about-section {
+    padding: 80px 0;
+    background-color: var(--light-gray);
+}
+
+.about-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+}
+
+.about-text h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+}
+
+.about-text p {
+    margin-bottom: 1.5rem;
+    color: var(--gray-color);
+}
+
+.skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    margin-top: 1.5rem;
+}
+
+.skill-tag {
+    background-color: var(--accent-color);
+    color: white;
+    padding: 6px 14px;
+    border-radius: 30px;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+/* Contact Section */
+.contact-section {
+    padding: 80px 0;
+}
+
+.contact-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    margin-top: 2rem;
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.contact-item i {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    margin-top: 5px;
+}
+
+.contact-item h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.3rem;
+}
+
+.contact-item p {
+    color: var(--gray-color);
+    margin-bottom: 0;
+}
+
+.contact-form {
+    background: white;
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid var(--light-gray);
+    border-radius: var(--border-radius);
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    transition: var(--transition);
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.2);
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+/* Modal Styles */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.modal-container {
+    background-color: white;
+    border-radius: var(--border-radius);
+    width: 100%;
+    max-width: 900px;
+    max-height: 90vh;
+    overflow-y: auto;
+    animation: modalFadeIn 0.3s ease;
+}
+
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 2rem;
+    border-bottom: 1px solid var(--light-gray);
+}
+
+.modal-title {
+    margin: 0;
+    font-size: 1.8rem;
+}
+
+.modal-close {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: var(--gray-color);
+    transition: var(--transition);
+    line-height: 1;
+}
+
+.modal-close:hover {
+    color: var(--dark-color);
+}
+
+.modal-content {
+    padding: 2rem;
+}
+
+.service-detail {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+
+.service-features {
+    margin: 1.5rem 0;
+}
+
+.service-features ul {
+    list-style-type: disc;
+    padding-left: 1.2rem;
+}
+
+.service-features li {
+    margin-bottom: 0.5rem;
+    color: var(--gray-color);
+}
+
+.service-cta {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+/* Footer */
+.footer {
+    background-color: var(--dark-color);
+    color: white;
+    padding: 60px 0 30px;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+    margin-bottom: 3rem;
+}
+
+.footer-logo .logo {
+    color: white;
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    display: inline-block;
+}
+
+.footer-logo p {
+    color: rgba(255, 255, 255, 0.7);
+    max-width: 300px;
+}
+
+.footer-links h3, .footer-social h3 {
+    font-size: 1.3rem;
+    margin-bottom: 1.5rem;
+}
+
+.footer-links ul li {
+    margin-bottom: 0.8rem;
+}
+
+.footer-links ul li a {
+    color: rgba(255, 255, 255, 0.7);
+    transition: var(--transition);
+}
+
+.footer-links ul li a:hover {
+    color: var(--accent-color);
+    padding-left: 5px;
+}
+
+.social-icons {
+    display: flex;
+    gap: 1rem;
+}
+
+.social-icons a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    transition: var(--transition);
+}
+
+.social-icons a:hover {
+    background-color: var(--primary-color);
+    transform: translateY(-3px);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.9rem;
+}
+
+/* Responsive Styles */
+@media (max-width: 992px) {
+    .hero .container,
+    .about-content,
+    .contact-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .section-title {
+        font-size: 2.2rem;
+    }
+    
+    .footer-content {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex;
+    }
+    
+    .nav-menu {
+        position: fixed;
+        top: 80px;
+        left: -100%;
+        width: 100%;
+        background-color: white;
+        flex-direction: column;
+        align-items: center;
+        padding: 2rem 0;
+        box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        transition: var(--transition);
+        z-index: 999;
+    }
+    
+    .nav-menu.active {
+        left: 0;
+    }
+    
+    .hero {
+        padding: 130px 0 60px;
+    }
+    
+    .hero-title {
+        font-size: 2.2rem;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+    
+}
+
+@media (max-width: 576px) {
+    .hero-title {
+        font-size: 1.8rem;
+    }
+    
+    .section-title {
+        font-size: 1.8rem;
+    }
+    
+    .btn {
+        padding: 10px 20px;
+    }
+    
+    .modal-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+    
+    .modal-title {
+        font-size: 1.5rem;
+    }
+    
+    .service-cta {
+        flex-direction: column;
+    }
+}
+
+/* Detail Page Styles */
+.detail-section {
+    padding: 120px 0 60px;
+    background-color: var(--light-color);
+}
+
+.service-detail-card {
+    background: #fff;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    max-width: 800px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.service-detail-header {
+    padding: 2rem;
+    background-color: var(--primary-color);
+    color: #fff;
+}
+
+.service-detail-header h1 {
+    font-size: 2.2rem;
+    margin: 0;
+}
+
+.service-detail-header .price {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-top: 0.5rem;
+    opacity: 0.9;
+}
+
+.service-detail-content {
+    padding: 2rem;
+}
+
+.service-detail-content p {
+    color: var(--gray-color);
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+}
+
+.features-section,
+.preparations-section {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--light-gray);
+}
+
+.features-section h2,
+.preparations-section h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--secondary-color);
+}
+
+#detailFeatures,
+#detailPreparations {
+    list-style: none;
+    padding-left: 0;
+}
+
+#detailFeatures li,
+#detailPreparations li {
+    position: relative;
+    padding-left: 1.8rem;
+    margin-bottom: 1rem;
+    color: var(--gray-color);
+    line-height: 1.5;
+}
+
+#detailFeatures li::before {
+    content: '✔';
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: var(--success-color);
+    font-weight: 700;
+}
+
+.preparations-section ul li::before {
+
+    content: '⚠️';
+
+    position: absolute;
+
+    left: 0;
+
+    top: 0;
+
+}
+
+
+
+.service-detail-actions {
+
+    padding: 2rem;
+
+    border-top: 1px solid var(--light-gray);
+
+    background-color: var(--light-color);
+
+    display: flex;
+
+    justify-content: space-around;
+
+    gap: 1rem;
+
+}
+    </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -29,94 +888,139 @@
         </div>
     </header>
 
-    <section class="hero" id="home">
-        <div class="container hero-grid">
-            <div class="hero-content">
-                <span class="pill pill-ghost">Dịch vụ mạng xã hội</span>
-                <h1 class="hero-title">Nâng trải nghiệm MXH của bạn lên một tầm cao mới</h1>
-                <p class="hero-subtitle">Gói dịch vụ tối ưu, bảo mật và hỗ trợ nhanh để bạn kết nối, chia sẻ và giải trí không gián đoạn.</p>
-                <div class="hero-actions">
-                    <a href="#services" class="btn btn-primary">Khám phá dịch vụ</a>
-                    <a href="#contact" class="btn btn-secondary">Liên hệ nhanh</a>
-                </div>
-                <div class="hero-tags">
-                    <span class="pill">An toàn</span>
-                    <span class="pill">Tốc độ</span>
-                    <span class="pill">24/7 Support</span>
-                </div>
-            </div>
-            <div class="hero-visual">
-                <div class="hero-card">
-                    <div class="hero-card-top">
-                        <span class="pill pill-soft">Dịch vụ nổi bật</span>
-                        <span class="hero-price">Chỉ từ 3.000 KRW</span>
+    <div id="main-view">
+        <section class="hero" id="home">
+            <div class="container hero-grid">
+                <div class="hero-content">
+                    <span class="pill pill-ghost">Dịch vụ mạng xã hội</span>
+                    <h1 class="hero-title">Nâng trải nghiệm MXH của bạn lên một tầm cao mới</h1>
+                    <p class="hero-subtitle">Gói dịch vụ tối ưu, bảo mật và hỗ trợ nhanh để bạn kết nối, chia sẻ và giải trí không gián đoạn.</p>
+                    <div class="hero-actions">
+                        <a href="#services" class="btn btn-primary">Khám phá dịch vụ</a>
+                        <a href="#contact" class="btn btn-secondary">Liên hệ nhanh</a>
                     </div>
-                    <p class="hero-card-text">Tối ưu xem video, tải ứng dụng và trải nghiệm MXH ổn định trên mọi thiết bị.</p>
-                    <div class="hero-meta">
-                        <div class="stat">
-                            <span class="stat-number">10+</span>
-                            <span class="stat-label">Tính năng</span>
-                        </div>
-                        <div class="stat">
-                            <span class="stat-number">Phút</span>
-                            <span class="stat-label">Hướng dẫn nhanh</span>
-                        </div>
-                        <div class="stat">
-                            <span class="stat-number">Multi</span>
-                            <span class="stat-label">Thiết bị</span>
-                        </div>
+                    <div class="hero-tags">
+                        <span class="pill">An toàn</span>
+                        <span class="pill">Tốc độ</span>
+                        <span class="pill">24/7 Support</span>
                     </div>
                 </div>
+                <div class="hero-visual">
+                    <div class="hero-card">
+                        <div class="hero-card-top">
+                            <span class="pill pill-soft">Dịch vụ nổi bật</span>
+                            <span class="hero-price">Chỉ từ 3.000 KRW</span>
+                        </div>
+                        <p class="hero-card-text">Tối ưu xem video, tải ứng dụng và trải nghiệm MXH ổn định trên mọi thiết bị.</p>
+                        <div class="hero-meta">
+                            <div class="stat">
+                                <span class="stat-number">10+</span>
+                                <span class="stat-label">Tính năng</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-number">Phút</span>
+                                <span class="stat-label">Hướng dẫn nhanh</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-number">Multi</span>
+                                <span class="stat-label">Thiết bị</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <main class="main-content">
-        <div class="container">
-            <section class="services-section" id="services">
+        <main class="main-content">
+            <div class="container">
+                <section class="services-section" id="services">
+                    <div class="section-header">
+                        <h2 class="section-title">Dịch Vụ</h2>
+                        <p class="section-subtitle">Chọn dịch vụ phù hợp với nhu cầu của bạn, thiết kế cho trải nghiệm MXH liền mạch.</p>
+                    </div>
+                    <div class="services-grid" id="servicesGrid"></div>
+                </section>
+            </div>
+        </main>
+
+        <section class="contact-section" id="contact">
+            <div class="container">
                 <div class="section-header">
-                    <h2 class="section-title">Dịch Vụ</h2>
-                    <p class="section-subtitle">Chọn dịch vụ phù hợp với nhu cầu của bạn, thiết kế cho trải nghiệm MXH liền mạch.</p>
+                    <h2 class="section-title">Liên Hệ Với Chúng Tôi</h2>
+                    <p class="section-subtitle">Nếu bạn có bất kỳ câu hỏi nào, đừng ngần ngại liên hệ. Chúng tôi luôn sẵn sàng hỗ trợ.</p>
                 </div>
-                <div class="services-grid" id="servicesGrid"></div>
-            </section>
-        </div>
-    </main>
-
-    <section class="contact-section" id="contact">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Liên Hệ Với Chúng Tôi</h2>
-                <p class="section-subtitle">Nếu bạn có bất kỳ câu hỏi nào, đừng ngần ngại liên hệ. Chúng tôi luôn sẵn sàng hỗ trợ.</p>
-            </div>
-            <div class="contact-content">
-                <div class="contact-info">
-                    <h3>Thông Tin Liên Hệ</h3>
-                    <!-- <div class="contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <div>
-                            <h4>Email</h4>
-                            <p>coc799299@gmail.com</p>
-                        </div>
-                    </div> -->
-                    <div class="contact-item">
-                        <i class="fab fa-kickstarter-k"></i>
-                        <div>
-                            <h4>KakaoTalk</h4>
-                            <p>ID: lht_1307</p>
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <h3>Thông Tin Liên Hệ</h3>
+                        <div class="contact-item">
+                            <i class="fab fa-kickstarter-k"></i>
+                            <div>
+                                <h4>KakaoTalk</h4>
+                                <p>ID: lht_1307</p>
+                            </div>
                         </div>
                     </div>
-                    <!-- <div class="contact-item">
-                        <i class="fab fa-facebook"></i>
-                        <div>
-                            <h4>Facebook</h4>
-                            <p><a href="https://www.facebook.com/kcudx7x3/" target="_blank">Hoàng Tú</a></p>
-                        </div>
-                    </div> -->
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </div>
+
+    <div id="detail-view" style="display: none;">
+        <section class="detail-hero" id="detailHero">
+            <div class="container detail-hero-inner">
+                <div class="detail-hero-text">
+                    <span class="pill pill-ghost">Chi tiết dịch vụ</span>
+                    <h1 id="detailTitle">Tên dịch vụ</h1>
+                    <p class="detail-subtitle" id="detailSubtitle">Mô tả ngắn gọn sẽ hiển thị tại đây.</p>
+                    <div class="detail-meta">
+                        <span class="pill" id="detailPrice">--</span>
+                        <span class="pill pill-soft" id="detailFeatureCount">0 tính năng</span>                   
+                    </div>
+                </div>
+                <div class="detail-hero-visual">
+                    <div class="detail-hero-card">
+                        <div class="detail-hero-highlights">
+                            <span class="pill pill-soft">An toàn</span>
+                            <span class="pill pill-soft">Hỗ trợ nhanh</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="detail-body" id="detailContent">
+            <div class="container">
+                <div class="detail-layout">
+                    <div class="detail-main">
+                        <div class="detail-card">
+                            <h2>Giới thiệu</h2>
+                            <p id="detailDescription">Thông tin đầy đủ về dịch vụ.</p>
+                        </div>
+                        <div class="detail-card">
+                            <div class="detail-card-header">
+                                <h3>Tính năng</h3>
+                            </div>
+                            <ul class="detail-list" id="detailFeatures"></ul>
+                        </div>
+                        <div class="detail-card" id="detailPreparationsCard">
+                            <div class="detail-card-header">
+                                <h3>Cần chuẩn bị</h3>
+                            </div>
+                            <ul class="detail-list" id="detailPreparations"></ul>
+                        </div>
+                    </div>
+                    <aside class="detail-aside">
+                        <div class="detail-card detail-aside-card">                     
+                            <div class="detail-actions">
+                                <a href="#contact" class="btn btn-primary">Kết nối ngay</a>
+                                <a href="#" id="back-to-services" class="btn btn-secondary">Quay lại</a>
+                            </div>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </section>
+    </div>
 
     <footer class="footer">
         <div class="container">
@@ -140,6 +1044,185 @@
         </div>
     </footer>
 
-    <script src="js/main.js"></script>
+    <script>
+        const services = [
+            {
+                "id": 1,
+                "name": "YouTubeVPN",
+                "shortDescription": "Xem video youtube không bị chặn và có chất lượng tốt hơn.",
+                "longDescription": "Sử dụng YoutubeVPN để xem video youtube không bị quảng cáo, phát video dưới nền, pop-up video...",
+                "price": "12.000₩",
+                "features": [
+                    "Chặn quảng cáo 100%",
+                    "HƯỚNG DẪN CHI TIẾT , NẾU TRONG QUÁ TRÌNH LÀM MÀ FILE BỊ FIX or LỖI SẼ HOÀN TIỀN 100%"
+                ],
+                "preparations": [
+                  "NHỮNG THỨ CẦN CHUẨN BỊ ĐỂ THỰC HIỆN: tải ứng dụng (Shadowrocket) với giá 99k vnd trên Appstore,Hoặc thuê icloud để tải",
+                    "=======================",
+                    "LƯU Ý: HÃY ĐỌC KỸ NẾU KHÔNG SẼ KHÔNG HỖ TRỢ",
+                    "Vẫn sẽ có lỗi vì đây chỉ là VPN để thay đổi proxy truy cập youtube",
+                    "Sẽ có hướng dẫn đầy đủ nếu gặp tình trạng lỗi",
+                    "Giá rẻ nên bảo hành 2 tuần",
+                    "Bên mình đang tìm các gói có bảo hành",
+                    "Đã test trên nhiều thiết bị IOS",
+                    "=======================",
+                    "ĐẶC BIỆT KHÔNG ĐƯỢC UPDATE YOUTUBE KHI ĐANG SỬ DỤNG GÓI TRÁNH FIX (LIÊN HỆ ĐỂ ĐƯỢC HƯỚNG DẪN TẮT UPDATE)"
+                ]
+            },
+            {
+                "id": 2,
+                "name": "Thuê icloud",
+                "shortDescription": "",
+                "longDescription": "Sử dụng để download các app cần thiết.",
+                "price": "3.000₩",
+                "features": [
+                    "Download"
+                ],
+                "preparations": [
+                    "Khi thuê các bạn sẽ được cung cấp 1 icloud để đăng nhập và tải app SHADOWROCKET",
+                    "Hoặc có thể tự mua app trên APPSTORE"
+                ]
+            }
+        ];
+
+        document.addEventListener('DOMContentLoaded', function() {
+            initApp();
+        });
+
+        function initApp() {
+            renderServices(services);
+            setupMobileMenu();
+            setupSmoothScrolling();
+            setupActiveNavigation();
+
+            document.getElementById('back-to-services').addEventListener('click', function(e) {
+                e.preventDefault();
+                showMainView();
+            });
+        }
+
+        function renderServices(services) {
+            const servicesGrid = document.getElementById('servicesGrid');
+            if (!servicesGrid) return;
+            servicesGrid.innerHTML = services.map(service => `
+                <div class="service-card" data-service-id="${service.id}">
+                    <div class="service-content">
+                        <h3 class="service-title">${service.name}</h3>
+                        <p class="service-description">${service.shortDescription}</p>
+                        <div class="service-meta">
+                            <span class="service-price">${service.price}</span>
+                            <button class="btn btn-primary view-detail-btn" data-service-id="${service.id}">
+                                Xem chi tiết
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+
+            document.querySelectorAll('.view-detail-btn').forEach(button => {
+                button.addEventListener('click', function() {
+                    const serviceId = parseInt(this.getAttribute('data-service-id'));
+                    showServiceDetail(serviceId);
+                });
+            });
+        }
+
+        function showServiceDetail(serviceId) {
+            const service = services.find(s => s.id === serviceId);
+            if (!service) return;
+
+            document.getElementById('main-view').style.display = 'none';
+            document.getElementById('detail-view').style.display = 'block';
+
+            document.getElementById('detailTitle').textContent = service.name;
+            document.getElementById('detailSubtitle').textContent = service.shortDescription;
+            document.getElementById('detailPrice').textContent = service.price;
+            document.getElementById('detailFeatureCount').textContent = `${service.features.length} tính năng`;
+            document.getElementById('detailDescription').textContent = service.longDescription;
+
+            const featuresList = document.getElementById('detailFeatures');
+            featuresList.innerHTML = service.features.map(f => `<li>${f}</li>`).join('');
+
+            const preparationsCard = document.getElementById('detailPreparationsCard');
+            if (service.preparations && service.preparations.length > 0) {
+                const preparationsList = document.getElementById('detailPreparations');
+                preparationsList.innerHTML = service.preparations.map(p => `<li>${p}</li>`).join('');
+                preparationsCard.style.display = 'block';
+            } else {
+                preparationsCard.style.display = 'none';
+            }
+             window.scrollTo(0, 0);
+        }
+
+        function showMainView() {
+            document.getElementById('detail-view').style.display = 'none';
+            document.getElementById('main-view').style.display = 'block';
+            window.scrollTo(0, 0);
+        }
+
+        function setupMobileMenu() {
+            const hamburger = document.getElementById('hamburger');
+            const navMenu = document.getElementById('navMenu');
+            
+            if (!hamburger || !navMenu) return;
+            
+            hamburger.addEventListener('click', function() {
+                navMenu.classList.toggle('active');
+                hamburger.classList.toggle('active');
+            });
+            
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.addEventListener('click', function() {
+                    navMenu.classList.remove('active');
+                    hamburger.classList.remove('active');
+                });
+            });
+        }
+
+        function setupSmoothScrolling() {
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        e.preventDefault();
+                        const headerHeight = document.querySelector('.header').offsetHeight;
+                        const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+                        
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        }
+
+        function setupActiveNavigation() {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            function updateActiveNavLink() {
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    if (scrollY >= (sectionTop - 100)) {
+                        current = section.getAttribute('id');
+                    }
+                });
+                
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${current}`) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+            
+            window.addEventListener('scroll', updateActiveNavLink);
+        }
+    </script>
 </body>
 </html>
