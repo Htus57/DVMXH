@@ -1,1 +1,158 @@
-<a href="detail.html?itemId=1" class="view-detail">Xem Chi Tiết</a>
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dịch Vụ</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header class="header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="logo">Dịch Vụ<span>MXH</span></a>
+                <ul class="nav-menu" id="navMenu">
+                    <li class="nav-item"><a href="#home" class="nav-link active">Trang chủ</a></li>
+                    <li class="nav-item"><a href="#services" class="nav-link">Dịch vụ</a></li>
+                    <li class="nav-item"><a href="#contact" class="nav-link">Liên hệ</a></li>
+                </ul>
+                <div class="hamburger" id="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <!-- Hero Section -->
+<section class="hero" id="home">
+    <div class="container">
+        <div class="hero-content">
+            <h1 class="hero-title">Duck</h1>
+            <p class="hero-subtitle">Chuyên cung cấp dịch vụ và update lỗi nhanh để bạn có một trãi nghiệm tốt.</p>
+            <a href="#services" class="btn btn-primary">Khám phá dịch vụ</a>
+        </div>
+    </div>
+</section>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Services Section -->
+            <section class="services-section" id="services">
+                <div class="section-header">
+                    <h2 class="section-title">Dịch Vụ</h2>
+                    <p class="section-subtitle">Các dịch vụ được cung cấp với chất lượng tốt nhất</p>
+                </div>
+                
+                <!-- Services Grid -->
+                <div class="services-grid" id="servicesGrid">
+                    <!-- Services will be loaded dynamically from services.json -->
+                </div>
+            </section>
+
+            <!-- About Section -->
+        </div>
+    </main>
+
+    <!-- Service Detail Modal -->
+    <div class="modal-overlay" id="serviceModal">
+        <div class="modal-container">
+            <div class="modal-header">
+                <h2 class="modal-title" id="modalServiceTitle">Tên Dịch Vụ</h2>
+                <button class="modal-close" id="modalClose">&times;</button>
+            </div>
+            <div class="modal-content">
+                <div class="service-detail">
+                    <div class="service-detail-image">
+                        <img id="modalServiceImage" src="" alt="Chi tiết dịch vụ">
+                    </div>
+                    <div class="service-detail-content">
+                        <h3>Mô tả chi tiết</h3>
+                        <p id="modalServiceDescription">Mô tả chi tiết về dịch vụ sẽ hiển thị ở đây.</p>
+                        
+                        <div class="service-features" id="modalServiceFeatures">
+                            <!-- Features will be loaded dynamically -->
+                        </div>
+                        <!-- THÊM ĐOẠN NÀY VÀO MODAL HTML (sau features) -->
+                            <div class="service-preparations" id="modalServicePreparations" style="display: none;">
+                                 <!-- Preparations will be loaded dynamically -->
+                             </div>
+                        <div class="service-cta">
+                            <button class="btn btn-secondary" id="modalCloseBtn">Đóng</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Liên Hệ</h2>
+                <p class="section-subtitle">Hãy liên hệ với tôi để được tư vấn và báo giá chi tiết</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h3>Email</h3>
+                            <p>coc799299@gmail.com</p>
+                        </div>
+                     <div class="contact-item">
+                        <i class="fas fa-kakao-talk"></i>
+                        <div>
+                            <h3>KakaoTalk</h3>
+                            <p>ID:lht_1307</p>
+                    
+                        </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <a href="#" class="logo">Dịch Vụ</a>
+                    <p>Cung cấp giải pháp, uy tín và hiệu quả.</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Liên kết nhanh</h3>
+                    <ul>
+                        <li><a href="#home">Trang chủ</a></li>
+                        <li><a href="#services">Dịch vụ</a></li>
+                        <li><a href="#contact">Liên hệ</a></li>
+                    </ul>
+                </div>
+               <!--<div class="footer-social">
+                    <h3>Kết nối với tôi</h3>
+                    <div class="social-icons">
+                       <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>--> 
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Dịch Vụ MXH.Tất cả các dịch vụ được cung cấp tuyệt đối an toàn và bảo mật thông tin.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+</body>
+</html>
