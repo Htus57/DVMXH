@@ -828,8 +828,31 @@ img {
 }
 
 .preparations-section ul li::before {
+
     content: '⚠️';
+
     position: absolute;
+
     left: 0;
+
     top: 0;
+
+}
+
+
+
+.service-detail-actions {
+
+    padding: 2rem;
+
+    border-top: 1px solid var(--light-gray);
+
+    background-color: var(--light-color);
+
+    display: flex;
+
+    justify-content: space-around;
+
+    gap: 1rem;
+
 }
