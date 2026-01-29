@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service Detail</title>
+    <link rel="stylesheet" href="DVMXH/css/style.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar container">
+            <a href="index.html" class="logo">DVMXH<span>.</span></a>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html#home" class="nav-link">Home</a></li>
+                <li><a href="index.html#services" class="nav-link">Services</a></li>
+                <li><a href="index.html#about" class="nav-link">About</a></li>
+                <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+    </header>
+
+    <main class="detail-section">
+        <div class="container">
+            <div class="service-detail-card">
+                <div class="service-detail-header">
+                    <h1 id="detailTitle"></h1>
+                    <p class="price" id="detailPrice"></p>
+                </div>
+                <div class="service-detail-content">
+                    <p id="detailDescription"></p>
+
+                    <div class="features-section">
+                        <h2>Tính năng</h2>
+                        <ul id="detailFeatures"></ul>
+                    </div>
+
+                    <div id="detailPreparationsCard" class="preparations-section">
+                        <h2>Lưu ý quan trọng</h2>
+                        <ul id="detailPreparations"></ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 DVMXH. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/detail.js"></script>
+</body>
+</html>
